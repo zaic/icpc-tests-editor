@@ -6,7 +6,7 @@ GUI-based test editor for competitive programming tasks.
 
 ## Prerequisites
 
-First, you need modern c++ compiler with c++20 standard support.
+First, you need a modern c++ compiler with c++17 standard support.
 
 Then, project use [cmake](https://cmake.org/) in build process, which is also required.
 

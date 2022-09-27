@@ -13,4 +13,4 @@ set(CMAKE_AUTOUIC ON)
 
 add_executable(DesktopApp ${SOURCES})
 
-target_link_libraries(DesktopApp PRIVATE Qt6::Widgets)
+target_link_libraries(DesktopApp PRIVATE TaskProcessor Qt6::Widgets)
