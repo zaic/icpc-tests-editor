@@ -10,7 +10,7 @@ public:
     ~EntireFileTask() override;
 
     std::unique_ptr<ITestSelector> testSelector() override;
-    std::unique_ptr<ITestVisualizer> testVisualizer() override;
+    std::unique_ptr<TestVisualizerBase> testVisualizer() override;
 
 private:
     const std::filesystem::path mTaskDir;
