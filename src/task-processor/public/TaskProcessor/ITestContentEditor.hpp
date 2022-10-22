@@ -1,11 +1,12 @@
 #pragma once
 
 #include <string>
+#include <optional>
 
 struct TestContent {
     std::string input;
-    std::string output;
-    std::string description;
+    std::optional<std::string> answer;
+    std::optional<std::string> description;
 };
 
 class ITestContentEditor {

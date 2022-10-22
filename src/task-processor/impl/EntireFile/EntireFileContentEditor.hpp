@@ -6,7 +6,7 @@
 
 class EntireFileContentEditor : public ITestContentEditor {
 public:
-    EntireFileContentEditor(std::filesystem::path testsDir, int testNumber);
+    EntireFileContentEditor(std::filesystem::path testsDir, std::string testNumber);
     ~EntireFileContentEditor() override;
 
     TestContent load() override;
@@ -17,5 +17,5 @@ public:
 
 private:
     const std::filesystem::path mTestsDir;
-    const int mTestNumber;
+    const std::string mTestNumber;
 };
