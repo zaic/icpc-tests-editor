@@ -6,6 +6,8 @@ set(SOURCES
     impl/EntireFile/EntireFileContentEditor.cpp
     impl/EntireFile/EntireFileTestSelector.cpp
     impl/EntireFile/EntireFileTask.cpp
+
+    impl/Visualizer/StatVisualizer.cpp
 )
 
 add_library(TaskProcessor STATIC ${SOURCES})
