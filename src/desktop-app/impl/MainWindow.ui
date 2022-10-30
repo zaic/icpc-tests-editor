@@ -78,6 +78,9 @@
     </item>
     <item>
      <widget class="QSplitter" name="sptVisualization">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -214,5 +217,25 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>btnTaskDir</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>runTaskOpenDialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1254</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>646</x>
+     <y>326</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>runTaskOpenDialog()</slot>
+ </slots>
 </ui>
