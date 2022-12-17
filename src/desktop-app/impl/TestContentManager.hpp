@@ -2,7 +2,7 @@
 
 #include <QObject>
 
-class TestContentManager final : QObject {
+class TestContentManager final : public QObject {
     Q_OBJECT
 
 public:
@@ -15,8 +15,6 @@ public slots:
 
 signals:
     void testContentChanged(QString input, QString answer);
-    void inputChanged(QString input);
-    void answerChanged(QString answer);
 
 private:
     QString mInput;

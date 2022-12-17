@@ -36,4 +36,15 @@ void MainWindow::unloadTask() {
 void MainWindow::loadTask(QString taskDir) {
     mTask = TaskLoader::loadFromDirectory(taskDir.toStdString());
     ui->sptVisualization->setEnabled(true);
+
+    connect(ui->txtInput, &QTextEdit::textChanged, [this](){
+        mContentManager.updateInput(ui->txtInput->toPlainText());
+    });
+    connect(ui->txtOutput, &QTextEdit::textChanged, [this](){
+        mContentManager.updateAnswer(ui->txtOutput->toPlainText());
+    });
+    connect(&mContentManager, &TestContentManager::testContentChanged, [this](QString input, QString answer){
+        ui->txtInput->setText(input);
+        ui->txtOutput->setText(answer);
+    });
 }

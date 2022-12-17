@@ -1,4 +1,4 @@
-#include "TestContentManager.h"
+#include "TestContentManager.hpp"
 
 TestContentManager::TestContentManager() = default;
 
@@ -17,7 +17,7 @@ void TestContentManager::updateInput(QString input) {
         return ;
 
     mInput = input;
-    emit inputChanged(mInput);
+    emit testContentChanged(mInput, mAnswer);
 }
 
 void TestContentManager::updateAnswer(QString answer) {
@@ -25,5 +25,5 @@ void TestContentManager::updateAnswer(QString answer) {
         return ;
 
     mAnswer = answer;
-    emit answerChanged(mAnswer);
+    emit testContentChanged(mInput, mAnswer);
 }

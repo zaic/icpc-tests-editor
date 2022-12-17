@@ -1,8 +1,10 @@
 #pragma once
 
-#include <memory>
+#include "TestContentManager.hpp"
 
 #include <QMainWindow>
+
+#include <memory>
 
 class ITask;
 
@@ -27,4 +29,5 @@ private:
 private:
     Ui::MainWindow *ui;
     std::unique_ptr<ITask> mTask;
+    TestContentManager mContentManager;
 };

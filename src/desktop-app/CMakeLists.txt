@@ -5,6 +5,8 @@ set(SOURCES
     impl/MainWindow.ui
     impl/MainWindow.hpp
     impl/MainWindow.cpp
+    impl/TestContentManager.hpp
+    impl/TestContentManager.cpp
 )
 
 set(CMAKE_AUTOMOC ON)
