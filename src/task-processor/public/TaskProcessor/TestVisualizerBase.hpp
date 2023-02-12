@@ -6,7 +6,8 @@ class TestVisualizerBase : public QObject {
     Q_OBJECT
 
 public:
-    virtual ~TestVisualizerBase() = default;
+    TestVisualizerBase();
+    virtual ~TestVisualizerBase();
 
     virtual void drawVisualizationInto(QWidget& parent) = 0;
 

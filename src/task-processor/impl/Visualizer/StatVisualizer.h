@@ -4,6 +4,8 @@
 #include <QLabel>
 
 class StatVisualizer : public TestVisualizerBase {
+    Q_OBJECT
+
 public:
     StatVisualizer();
     ~StatVisualizer() override;

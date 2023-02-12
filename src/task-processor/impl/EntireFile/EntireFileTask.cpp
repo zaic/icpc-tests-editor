@@ -1,7 +1,7 @@
 #include "EntireFileTask.hpp"
 
 #include "EntireFileTestSelector.hpp"
-#include "TestVisualizerBase.hpp"
+#include "Visualizer/StatVisualizer.h"
 
 namespace fs = std::filesystem;
 
@@ -29,5 +29,6 @@ std::unique_ptr<ITestSelector> EntireFileTask::testSelector() {
 }
 
 std::unique_ptr<TestVisualizerBase> EntireFileTask::testVisualizer() {
-    return nullptr;
+    // todo store once
+    return std::make_unique<StatVisualizer>();
 }

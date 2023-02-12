@@ -3,6 +3,7 @@
 
 #include <TaskProcessor/TaskLoader.hpp>
 #include <TaskProcessor/ITask.hpp>
+#include <TaskProcessor/TestVisualizerBase.hpp>
 
 #include <QFileDialog>
 
@@ -21,14 +22,15 @@ void MainWindow::runTaskOpenDialog() {
     const QString taskDir = QFileDialog::getExistingDirectory(this, tr("Open Task"));
     if (taskDir.isEmpty())
         return ;
+
     unloadTask();
     loadTask(taskDir);
-    ui->sptVisualization->setEnabled(!taskDir.isEmpty());
 }
 
 void MainWindow::unloadTask() {
     if (!mTask)
         return ;
+    // todo disconnect?
     ui->sptVisualization->setEnabled(false);
     mTask.release();
 }
@@ -36,6 +38,13 @@ void MainWindow::unloadTask() {
 void MainWindow::loadTask(QString taskDir) {
     mTask = TaskLoader::loadFromDirectory(taskDir.toStdString());
     ui->sptVisualization->setEnabled(true);
+
+    // todo:
+    //  get visualuzation widget
+    //  add it into windows
+    //  remove when unloadint the task
+    auto visualizer = mTask->testVisualizer();
+    visualizer->drawVisualizationInto(*ui->wdgVisualization);
 
     connect(ui->txtInput, &QTextEdit::textChanged, [this](){
         mContentManager.updateInput(ui->txtInput->toPlainText());
@@ -46,5 +55,8 @@ void MainWindow::loadTask(QString taskDir) {
     connect(&mContentManager, &TestContentManager::testContentChanged, [this](QString input, QString answer){
         ui->txtInput->setText(input);
         ui->txtOutput->setText(answer);
+        //visualizer->resetTestContent(input, answer);
     });
+
+    mContentManager.resetTestContent("input text", "output text");
 }
